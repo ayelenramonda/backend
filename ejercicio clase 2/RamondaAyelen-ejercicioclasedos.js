@@ -15,13 +15,13 @@ class Usuario {
 		return (`${this.mascotas.length}`)
 	}
 
-	addMascota(){
-		this.mascotas.push("pepe")
+	addMascota(nombreMascota){
+		this.mascotas.push(nombreMascota)
 
 	}
 
-	addBook(){
-		this.libros.push({"nombre":"El librito", "autor":"Oscar Perez"})
+	addBook(titulo, nombreAutor){
+		this.libros.push({nombre: titulo, autor: nombreAutor})
 	}
 
 	getBookNames(){
