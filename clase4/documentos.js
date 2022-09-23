@@ -8,7 +8,7 @@ class Contenedor{
 			await fs.promises.writeFile("./productos.txt", JSON.stringify(producto, null , 2), 'utf-8')
 			
 		} catch (error) {
-			
+			    
 			console.log(error)
 		}
 	}
