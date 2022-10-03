@@ -24,32 +24,34 @@ const archivo = [
 ];
 
 
-// producto nuevo
+
 const productoNuevo = {
-    title: "Mochila",
-    price: 100,
+    title: "Bolso",
+    price: 500,
     thumbnail: "https://cdn2.iconfinder.com/data/icons/flat-pack-1/64/Pencil-256.png"
-};
+}
+
 
 
 async function test(){
     try{
     const contenedor = new Contenedor("productos");
 
-    let nuevo = await contenedor.crearArchivo(archivo);
+    //let nuevo = await contenedor.crearArchivo(archivo);
 
 
-    let producto = await contenedor.save(productoNuevo);
-    console.log(`${producto} con id`);
+    // let producto = await contenedor.save(productoNuevo);
+	// console.log(`El producto con id ${producto} fue ingresado con éxito`);
+    
 
-    let buscarId = await contenedor.getById(3);
-    console.log("Buscaste: ", buscarId);
+    // let buscarId = await contenedor.getById(3);
+    // console.log("Buscaste: ", buscarId);
 
-    let borrarId = await contenedor.deleteById(2);
-    console.log("El elemento fue borrado con exito");
+    // let borrarId = await contenedor.deleteById(2);
+    // console.log("El elemento fue borrado con exito");
 
-    let obtenerTodo = await contenedor.getAll();
-    console.log(obtenerTodo);
+    // let obtenerTodo = await contenedor.getAll();
+    // console.log(obtenerTodo);
 
     // let borrarTodo = await contenedor.deleteAll();
     // console.log("Se han eliminado todos los productos" );

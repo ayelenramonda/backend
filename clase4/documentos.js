@@ -22,7 +22,7 @@ class Contenedor{
         producto.id = indice + 1;
         contenido.push(producto);
         this.crearArchivo(contenido);
-        console.log("producto ingresado");
+        console.log(`Producto ingresado con id ${producto.id}`);
         return producto.id;
 
     }
@@ -43,7 +43,7 @@ class Contenedor{
 		try{
 		const contenido = await this.getAll()
 		const productoBuscado = contenido.filter((producto) => producto.id === id)
-		return productoBuscado
+		return productoBuscado ? productoBuscado : null
 	}catch (err) {
 		console.log("Producto no encontrado", err);
 
@@ -74,4 +74,5 @@ class Contenedor{
 }
 
 module.exports = Contenedor;
+
 

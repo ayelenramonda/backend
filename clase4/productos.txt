@@ -1,5 +1,29 @@
 [
   {
+    "title": "Cuaderno",
+    "price": 500,
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/flat-pack-1/64/Pencil-256.png",
+    "id": 7
+  },
+  {
+    "title": "Cuaderno",
+    "price": 500,
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/flat-pack-1/64/Pencil-256.png",
+    "id": 6
+  },
+  {
+    "title": "Cuaderno",
+    "price": 500,
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/flat-pack-1/64/Pencil-256.png",
+    "id": 5
+  },
+  {
+    "title": "Cuaderno",
+    "price": 500,
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/flat-pack-1/64/Pencil-256.png",
+    "id": 4
+  },
+  {
     "title": "Globo Terráqueo",
     "price": 345.67,
     "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
@@ -12,9 +36,9 @@
     "id": 1
   },
   {
-    "title": "Mochila",
-    "price": 100,
+    "title": "Cuaderno",
+    "price": 500,
     "thumbnail": "https://cdn2.iconfinder.com/data/icons/flat-pack-1/64/Pencil-256.png",
-    "id": 4
+    "id": 8
   }
 ]
