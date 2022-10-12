@@ -1,0 +1,28 @@
+{
+  "name": "clase6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node clase6/main.js",
+    "dev": "nodemon clase6/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayelenramonda/backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayelenramonda/backend/issues"
+  },
+  "homepage": "https://github.com/ayelenramonda/backend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
