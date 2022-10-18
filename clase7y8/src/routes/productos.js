@@ -9,8 +9,8 @@ const routes = Router()
 
 routes.get('/', async (req, res, next) => {
     try {
-        let response = await ProdcutosController.getAll()
-        res.json(response)
+        let fileData = await ProdcutosController.getAll()
+        res.json(fileData)
 
     } catch (err) {
         next(err);
@@ -20,9 +20,9 @@ routes.get('/', async (req, res, next) => {
 routes.get('/:id', async (req, res, next) => {
 	try {
         const id = parseInt(req.params.id)
-        let response = await ProdcutosController.getById(id)
+        let fileData = await ProdcutosController.getById(id)
 
-        res.json(response);
+        res.json(fileData);
 
     } catch (err) {
         next(err);
@@ -63,7 +63,7 @@ routes.put('/:id', async (req, res, next) => {
 routes.delete('/:id', async (req, res, next) => {
     try {
         const id = parseInt(req.params.id)
-        await ProductsController.deleteById(id)
+        await ProdcutosController.deleteById(id)
 
         res.json({ message: 'Producto eliminado' })
 
