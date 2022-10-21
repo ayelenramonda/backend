@@ -48,8 +48,6 @@ class Contenedor{
 }
 
 
-
-
 	async save(producto) {
 		const contenido = await this.getAll();
 		const indice = contenido.sort((a, b) => b.id - a.id)[0].id;
@@ -61,7 +59,7 @@ class Contenedor{
 
 }
 	async findByIdAndUpdate(id, updateProduct) {	
-		const exist = await this.exists(id);
+		try {const exist = await this.exists(id);
 		if (!exist) throw new Error(`No existe item con ID ${id}`)
 
 		const contenido = await this.getAll();
@@ -69,16 +67,16 @@ class Contenedor{
 
 		const productoViejo = contenido[productoId]
 
-		const productoAModificar = {
-			id: productoViejo.id,
-			title: updateProduct.title,
-			price: updateProduct.price
-		}
-
-		productos.splice(productoId, 1, productoAModificar)
-
+		contenido[productoId] = {...updateProduct, id}
 		await this.crearArchivo(contenido)
-		return productoAModificar
+
+		} catch(error){
+			console.log(error)
+
+		}
+		
+		
+		
 
 	}
 
