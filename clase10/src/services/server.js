@@ -1,14 +1,15 @@
 const express = require('express')
 const rutaPrincipal = require('../routes/index')
 const path = require('path')
-// const { ProdcutosController } = require('../controller/productos')
-// const router = express.Router()
-
-// let produtos = new Contenedor()
-
+const { ProdcutosController } = require('../controller/productos')
 
 
 const app = express();
+
+app.get('/', (req, res) => {
+    const productos = ProdcutosController.getAll();
+    res.render('index', { productos });
+  });
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -24,15 +25,6 @@ app.set('view engine', 'ejs')
 
 app.use('/api', rutaPrincipal)
 
-// routes.get('/', async (req, res, next) => {
-//     try {
-//         let fileData = await ProdcutosController.getAll()
-//         res.json(fileData)
-
-//     } catch (err) {
-//         next(err);
-//     }
-// });
 
 
 
