@@ -1,5 +1,5 @@
 const fs = require ('fs')
-const filePath = '../clase7y8/src/productos.json'
+const filePath = path.resolve(__dirname, "../productos.json");
 
 class Contenedor{
 	constructor(data) {
