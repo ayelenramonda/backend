@@ -36,3 +36,18 @@ h1{
 	color: purple;
 
 }
+
+.link{
+	color: rgb(0, 92, 77);
+	font-weight: 500;
+	text-decoration: none;
+	line-height: 50px;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.link:hover{
+	color: rgb(0, 51, 92);
+	text-decoration: underline;
+	
+}

@@ -11,6 +11,7 @@ routes.get('/', async (req, res, next) => {
     try {
         let fileData = await ProdcutosController.getAll()
         res.json(fileData)
+        res.render('index', { fileData });
 
     } catch (err) {
         next(err);
@@ -21,6 +22,7 @@ routes.get('/:id', async (req, res, next) => {
 	try {
         const id = parseInt(req.params.id)
         let fileData = await ProdcutosController.getById(id)
+        
 
         res.json(fileData);
 
@@ -39,7 +41,7 @@ routes.post('/', async (req, res, next) => {
         const data = await ProdcutosController.save(req.body)
         res.redirect('/')
 
-        res.json({ msg: `Nuevo producto guardado con id ${data}` });
+        //res.json({ msg: `Nuevo producto guardado con id ${data}` });
 
     } catch (err) {
         next(err);

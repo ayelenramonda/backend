@@ -5,27 +5,29 @@ const { ProdcutosController } = require('../controller/productos')
 
 
 const app = express();
-
-app.get('/', (req, res) => {
-    const productos = ProdcutosController.getAll();
-    res.render('index', { productos });
-  });
-
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-
 app.use(express.static('public'))
 
 const viewsFolderPath = path.resolve(__dirname, '../../views')
-app.set('views', viewsFolderPath)
 app.set('view engine', 'ejs')
+app.set('views', viewsFolderPath)
+
+app.get('/productos/historial', async (req, res, next) => {
+    try {
+        let fileData = await ProdcutosController.getAll()
+        //res.json(fileData)
+        res.render('index', { fileData });
+
+    } catch (err) {
+        next(err);
+    }
+});
 
 
 
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use('/api', rutaPrincipal)
-
-
 
 
 
