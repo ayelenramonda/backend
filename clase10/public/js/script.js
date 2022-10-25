@@ -15,11 +15,7 @@
 		   completarCampos.innerHTML = "Tenés q completar los campos"
 		   return;
 	   }
-	      if(price.value == NaN){
-			document.querySelector("#completarCampos").style.display = "block"
-		   completarCampos.innerHTML = "El precio es numérico"
-
-		  }
+	   
 		
 	   this.submit();
 	 }
