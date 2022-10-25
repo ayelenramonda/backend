@@ -1,0 +1,3 @@
+Elegí ejs para trabajar los archivos porque estoy más acostumbrada a la sintaxis,
+más que nada para evitar errores que pueda llegar a tener con las otras, y dale prioridad
+a la funcionalidad que es lo que más me cuesta.
