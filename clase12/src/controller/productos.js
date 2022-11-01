@@ -53,14 +53,19 @@ class Contenedor{
 
 	async save(producto) {
 		const contenido = await this.getAll();
-		const indice = contenido.sort((a, b) => b.id - a.id)[0].id;
-		producto.id = indice + 1;
+		const indice = contenido.sort((a, b) => b.id - a.id)[0].id;		
+		producto.id = indice + 1;		
 		contenido.push(producto);
 		this.crearArchivo(contenido);
 		console.log(`Producto ingresado con id ${producto.id}`);
 		return producto.id;
 
 }
+
+	post(producto) {
+		producto.id = ++this.id;
+		this.tada.push(producto);
+	}
 	async findByIdAndUpdate(id, updateProduct) {	
 		try {const exist = await this.exists(id);
 		if (!exist) throw new Error(`No existe item con ID ${id}`)

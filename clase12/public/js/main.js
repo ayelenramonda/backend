@@ -39,10 +39,13 @@ function addMessage(e) {
 // Productos
 
 function renderItem(data) {
-    const html = data.map((elemento) => {
-        return `<div>${elemento.productos}</div>
-                        <p>${elemento.price}</p>
-                        <div><img width=50 src='${elemento.thumbnail}' alt="imgProducto"></div>
+    const html = data.map((e) => {
+        return `  
+                <tr>
+                <td>${e.producto}</td>
+                <td>${e.price}</td>
+                <td><img width=50 src='${e.thumbnail}' alt="imgProducto"></td>
+                </tr>
                         `
         
     }).join("\n")
@@ -50,7 +53,7 @@ function renderItem(data) {
 }
 function addItem() {
     const producto = {
-        producto: document.getElementsById("productos").value,
+        producto: document.getElementById("productos").value,
         price: document.getElementById("price").value,
         thumbnail: document.getElementById("thumbnail").value
     }

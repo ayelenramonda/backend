@@ -18,7 +18,9 @@ const PORT = 8080;
 // Objeto donde se guardan los mensajes
 
 const messages = [];
-const productoMostrar = [];
+
+const productoMostrar =[]
+
 
 
 
@@ -38,14 +40,13 @@ io.on("connection", (socket) => {
 
 	});
 
-    socket.emit("productoMostrar",  productoMostrar )
+    socket.emit("productoMostrar",  productoMostrar)
 
-	socket.on("newProduct", (data) => {
-		//let producto =  await ProdcutosController.getAll();
-        // await ProdcutosController.save(producto)
-		// io.sockets.emit("productList",  ProdcutosController.getAll() )
-        productoMostrar.push(data);
-        io.sockets.emit("productoMostrar",  productoMostrar);
+	socket.on("newProduct",  (data) => {
+		//let producto =  ProdcutosController.getAll();
+        productoMostrar.push(data)
+        io.sockets.emit("productoMostrar",  productoMostrar )
+        
 	})
 })
 
