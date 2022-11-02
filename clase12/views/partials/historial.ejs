@@ -10,7 +10,7 @@
 	  <th id="title">Producto</th>
 	  <th id="price">Precio</th>
 	  <th id="thumbnail">Foto</th>
-	  <th id="id">ID</th>
+	 
 	</tr>
 	<% fileData.forEach((producto) => { %>
 		<tr>
@@ -18,7 +18,7 @@
 			<td><%= producto.title %></td>
 			<td>$<%= producto.price %></td>
 			<td><img src=<%= producto.thumbnail %> alt="not found"></td>
-			<td><%= producto.id %></td>
+			
 		</tr>
 		<% }) %>
   </table>

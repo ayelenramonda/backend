@@ -19,7 +19,8 @@ const PORT = 8080;
 
 const messages = [];
 
-const productoMostrar =[]
+const productoMostrar =[
+]
 
 
 
@@ -39,6 +40,8 @@ io.on("connection", (socket) => {
 		io.sockets.emit("messages", messages);
 
 	});
+
+   
 
     socket.emit("productoMostrar",  productoMostrar)
 

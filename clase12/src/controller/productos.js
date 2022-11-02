@@ -9,6 +9,8 @@ class Contenedor{
 
     }
 
+	
+
 	async crearArchivo(productos) {
        
         try {
@@ -101,7 +103,6 @@ class Contenedor{
 
 
 }
-
 
 
 const instanciaProductosApi = new Contenedor(filePath)

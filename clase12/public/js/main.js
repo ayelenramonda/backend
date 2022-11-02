@@ -40,13 +40,12 @@ function addMessage(e) {
 
 function renderItem(data) {
     const html = data.map((e) => {
-        return `  
+        return ` 
                 <tr>
                 <td>${e.producto}</td>
                 <td>${e.price}</td>
                 <td><img width=50 src='${e.thumbnail}' alt="imgProducto"></td>
-                </tr>
-                        `
+                </tr> `
         
     }).join("\n")
     document.getElementById("idTbody").innerHTML = html

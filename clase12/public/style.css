@@ -90,6 +90,7 @@ input:focus{
 	
 
 	tr,td,th{
+		width:40%;
 		border-bottom: 1px solid rgb(199, 199, 199);
 		text-align: left;
 		
