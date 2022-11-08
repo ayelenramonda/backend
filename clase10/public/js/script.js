@@ -12,7 +12,8 @@
 	
 		   if(producto.length == 0 || price.length == 0  || thumbnail.length == 0) {
 		   document.querySelector("#completarCampos").style.display = "block"
-		   completarCampos.innerHTML = "Tenés q completar los campos"
+		   completarCampos.innerHTML = "Tenés que completar los campos"
+		   console.log("los campos")
 		   return;
 	   }
 	   

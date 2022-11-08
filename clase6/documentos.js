@@ -8,6 +8,11 @@ class Contenedor{
 
     }
 
+	async exists(id) {
+		const data = await this.getAll()
+		const indice = data.findIndex(product => product.id == id)
+		return indice >= 0;
+	}
 	async crearArchivo(productos) {
        
         try {
