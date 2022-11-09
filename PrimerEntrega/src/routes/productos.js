@@ -42,7 +42,7 @@ routes.get('/:id', async (req, res, next) => {
 // });
 
 
-routes.post('/', async (req, res, next) => {
+routes.post('/',  checkAdmin, async (req, res, next) => {
 	const { body } = req
     try {
         const data = await producto.save(req.body)
