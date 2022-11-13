@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.Router();
+const { Router } =  require('express')
 const path = require('path')
 const Contenedor = require('./../options/optionsMensaje')
 const Mensajes = require('./../options/optionsMensaje')
@@ -7,6 +7,8 @@ const {options} = require('./../../knexfile');
 const startTable = require('./../options/tables');
 const moment = require('moment');
 
+
+const router = Router()
 const app = express();
 
 // Configuración Websocket

@@ -7,7 +7,7 @@ socket.on("messages", (data) => {
 });
 
 // Conectamos el cliente y escuchamos el evento producList
-socket.on("productoMostrar", (data) => {
+socket.on("productoList", (data) => {
     renderItem(data);
 })
 
