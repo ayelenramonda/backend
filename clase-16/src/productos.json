@@ -1,0 +1,32 @@
+[
+  {
+    "producto": "gato",
+    "price": "432",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/2436/2436169.png",
+    "id": 16
+  },
+  {
+    "title": "mantel",
+    "price": "50",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/2072/2072215.png",
+    "id": 15
+  },
+  {
+    "title": "globos",
+    "price": "50",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/2072/2072215.png",
+    "id": 14
+  },
+  {
+    "title": "sillas",
+    "price": "5000",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/2271/2271436.png",
+    "id": 13
+  },
+  {
+    "producto": "gato",
+    "price": "432",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/2436/2436169.png",
+    "id": 17
+  }
+]
