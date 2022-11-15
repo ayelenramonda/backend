@@ -1,6 +1,6 @@
-
-import { Router } from 'express';
-import ProdcutosController from '../controller/productos'
+const { Router } =  require('express');
+const productos = require('../controller/productos');
+const { ProdcutosController } = require('../controller/productos')
 
 const routes = Router()
 
@@ -78,4 +78,5 @@ routes.delete('/:id', async (req, res, next) => {
 
 
 
-export default routes
+
+module.exports = routes
