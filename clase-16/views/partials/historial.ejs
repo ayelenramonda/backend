@@ -3,7 +3,7 @@
 	<h1>Historial de productos</h1>
 <br>
 
-<% if(fileData) { %>
+<% if(productos) { %>
 <table cellspacing="0" border="0">
 	<tr>
 	  
@@ -12,7 +12,7 @@
 	  <th id="thumbnail">Foto</th>
 	 
 	</tr>
-	<% fileData.forEach((producto) => { %>
+	<% productos.forEach((producto) => { %>
 		<tr>
 			
 			<td><%= producto.title %></td>

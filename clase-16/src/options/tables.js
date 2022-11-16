@@ -45,3 +45,6 @@ await knexSql.schema.dropTableIfExists('mensajes').then(() => {
 }
 
 module.exports = Tablas;
+
+
+

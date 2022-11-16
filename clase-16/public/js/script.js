@@ -8,7 +8,7 @@
 	 
 		function validarFormulario(evento) {
 		evento.preventDefault();
-		let producto = document.getElementById('productos').value;
+		let producto = document.getElementById('title').value;
 		let price = document.getElementById('price').value;
 		let thumbnail = document.getElementById('thumbnail').value;
 	

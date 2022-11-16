@@ -7,7 +7,7 @@ socket.on("messages", (data) => {
 });
 
 // Conectamos el cliente y escuchamos el evento producList
-socket.on("productoList", (data) => {
+socket.on("productList", (data) => {
     renderItem(data);
 })
 
@@ -42,7 +42,7 @@ function renderItem(data) {
     const html = data.map((e) => {
         return ` 
                 <tr>
-                <td>${e.producto}</td>
+                <td>${e.title}</td>
                 <td>${e.price}</td>
                 <td><img width=50 src='${e.thumbnail}' alt="imgProducto"></td>
                 </tr> `
@@ -52,7 +52,7 @@ function renderItem(data) {
 }
 function addItem() {
     const producto = {
-        producto: document.getElementById("productos").value,
+        producto: document.getElementById("title").value,
         price: document.getElementById("price").value,
         thumbnail: document.getElementById("thumbnail").value
     }

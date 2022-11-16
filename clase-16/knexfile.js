@@ -1,5 +1,6 @@
 // Update with your config settings.
 
+
 const options = {
     mysql: {
         client: "mysql",
@@ -14,7 +15,7 @@ const options = {
     sqlite3: {
         client: "sqlite3",
         connection: {
-            filename: "./DB/mydb.sqlite"
+            filename: "./src/DB/mydb.sqlite"
         },
         useNullAsDefault: true
     }

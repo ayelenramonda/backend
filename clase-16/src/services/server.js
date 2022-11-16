@@ -1,11 +1,12 @@
 const express = require('express')
 const { Router } =  require('express')
 const path = require('path')
-const Contenedor = require('./../options/optionsMensaje')
+const Contenedor = require('./../options/optionsProductos')
 const Mensajes = require('./../options/optionsMensaje')
 const {options} = require('./../../knexfile');
 const startTable = require('./../options/tables');
 const moment = require('moment');
+const rutaPrincipal = require('../routes/index')
 
 
 const router = Router()
@@ -64,16 +65,27 @@ app.set('view engine', 'ejs')
 app.set('views', viewsFolderPath)
 
 
-app.use("/", router);
+app.use("/api", rutaPrincipal);
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.get('/', async (req, res, next) => {
+    try {
+        let productos = await prod.getAll();
+        //res.json(fileData)
+        res.render('index', { productos });
+
+    } catch (err) {
+        next(err);
+    }
+});
+
 
 // Agrega el producto a la base de datos mysql
 router.post("/", (req, res) => {
-	const producto = req.body;
-	prod.addProduct(producto);
+	const title = req.body;
+	prod.addProduct(title);
 	res.redirect("/");
 });
 
