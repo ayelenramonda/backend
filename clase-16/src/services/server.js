@@ -84,8 +84,8 @@ app.get('/', async (req, res, next) => {
 
 // Agrega el producto a la base de datos mysql
 router.post("/", (req, res) => {
-	const title = req.body;
-	prod.addProduct(title);
+	const producto = req.body;
+	prod.addProduct(producto);
 	res.redirect("/");
 });
 

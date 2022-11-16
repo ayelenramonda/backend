@@ -1,4 +1,4 @@
-const { options } = require('./../../knexfile');
+const { options } = require('./../../knexfile.js');
 const knex = require('knex')(options.mysql);
 const knexSql = require('knex')(options.sqlite3)
 

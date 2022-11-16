@@ -43,7 +43,7 @@ function renderItem(data) {
         return ` 
                 <tr>
                 <td>${e.title}</td>
-                <td>${e.price}</td>
+                <td>$${e.price}</td>
                 <td><img width=50 src='${e.thumbnail}' alt="imgProducto"></td>
                 </tr> `
         
@@ -52,7 +52,7 @@ function renderItem(data) {
 }
 function addItem() {
     const producto = {
-        producto: document.getElementById("title").value,
+        title: document.getElementById("title").value,
         price: document.getElementById("price").value,
         thumbnail: document.getElementById("thumbnail").value
     }

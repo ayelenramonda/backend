@@ -15,7 +15,7 @@
 <div class="formulario">
 
 
-	<form id="formValidacion" >
+	<form id="formValidacion" onsubmit="addItem(this)" action="api/productos" method="POST" >
 		<h1>Ingresar productos</h1>
 		<label for="title">Producto</label>
 		<input type="text" name="title" id="title" placeholder="Ingrese un producto">
