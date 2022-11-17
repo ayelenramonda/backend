@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default class Producto{
 	constructor() {
-       //this.data = data;
+       
 		this.id = 0
 		
 
@@ -79,10 +79,7 @@ async save(prod) {
 
 }
 
-	// post(producto) {
-	// 	producto.id = ++this.id;
-	// 	this.tada.push(producto);
-	// }
+
 	async findByIdAndUpdate(id, updateProduct) {	
 		try {const exist = await this.exists(id);
 		if (!exist) throw new Error(`No existe item con ID ${id}`)
@@ -93,7 +90,7 @@ async save(prod) {
 		const productoViejo = contenido[productoId]
 
 		contenido[productoId] = {...updateProduct, id}
-		await this.crearArchivo(contenido)
+		await this.createData(contenido)
 
 		} catch(error){
 			console.log(error)
@@ -109,7 +106,7 @@ async save(prod) {
 	async findByIdAndDelete(id) {	
 		const contenido = await this.getAll()
 		const productoBorrado = contenido.filter((producto) => producto.id !== id)
-		this.crearArchivo(productoBorrado);
+		this.createData(productoBorrado);
 		console.log("Producto eliminado");
 	} catch (err) {
 		console.log(err);
@@ -120,6 +117,3 @@ async save(prod) {
 }
 
 
-// const instanciaProductosApi = new Contenedor(filePath)
-
-// export default instanciaProductosApi
