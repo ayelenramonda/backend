@@ -1,5 +1,5 @@
 const express = require('express')
-const { Router } =  require('express')
+//const { Router } =  require('express')
 const path = require('path')
 const Contenedor = require('./../options/optionsProductos')
 const Mensajes = require('./../options/optionsMensaje')
@@ -9,7 +9,7 @@ const moment = require('moment');
 const rutaPrincipal = require('../routes/index')
 
 
-const router = Router()
+//const router = Router()
 const app = express();
 
 // Configuración Websocket
@@ -18,7 +18,7 @@ const { Server: IOServer } = require("socket.io");
 const { Server: HttpServer } = require("http");
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
-const PORT = 8080;
+
 
 let prod = new Contenedor("productos", options.mysql);
 let msg = new Mensajes("mensajes", options.sqlite3)
@@ -50,7 +50,7 @@ io.on("connection", async (socket) => {
     socket.emit("productList", productos);
 
 	socket.on("newProduct", async (data) => {
-		await prod.addProduct(data);
+		await prod.addProduct(data);		 
 		productos.push(data)
         io.sockets.emit("productList", productos)
         

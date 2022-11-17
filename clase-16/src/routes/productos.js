@@ -35,18 +35,18 @@ routes.get('/:id', async (req, res, next) => {
 
 
 
-routes.post('/', async (req, res, next) => {
-	const { body } = req
-    try {
-        const data = await ProdcutosController.save(req.body)
-        res.redirect('/')
+// routes.post('/', async (req, res, next) => {
+// 	const { body } = req
+//     try {
+//         const data = await ProdcutosController.save(req.body)
+//         res.redirect('/')
 
-        //res.json({ msg: `Nuevo producto guardado con id ${data}` });
+//         //res.json({ msg: `Nuevo producto guardado con id ${data}` });
 
-    } catch (err) {
-        next(err);
-    }
-});
+//     } catch (err) {
+//         next(err);
+//     }
+// });
 
 
 routes.put('/:id', async (req, res, next) => {
