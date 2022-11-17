@@ -51,6 +51,7 @@ io.on("connection", async (socket) => {
 
 	socket.on("newProduct", async (data) => {
 		await prod.addProduct(data);
+		productos.push(data)
         io.sockets.emit("productList", productos)
         
 	})
@@ -83,7 +84,7 @@ app.get('/', async (req, res, next) => {
 
 
 // Agrega el producto a la base de datos mysql
-router.post("/", (req, res) => {
+app.post("/", (req, res) => {
 	const producto = req.body;
 	prod.addProduct(producto);
 	res.redirect("/");
