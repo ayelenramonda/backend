@@ -15,7 +15,7 @@ const productos = new Producto();
 //     "productos": []
 // }
 routes.post("/", async (req, res) => {
-		const carritoCreado = await carrito.crearCarrito();
+		const carritoCreado = await carrito.crearCarrito(req.body);
 		res.send(carritoCreado);
 	});
 

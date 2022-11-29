@@ -1,7 +1,8 @@
 
 import { Router } from 'express';
 import Producto from '../controller/productos'
-import { checkAdmin } from '../middleweare/auth';
+import { checkAdmin,checkBodyProduct } from '../middleweare/auth';
+
 
 const routes = Router();
 
@@ -35,11 +36,11 @@ routes.get('/:id', async (req, res, next) => {
 
 
 //envio un objeto con el producto, se agrega el id 
-routes.post('/',  async (req, res, next) => {
+routes.post('/', checkAdmin, checkBodyProduct,  async (req, res, next) => {
 	
     try {
         const data = await producto.createProduct(req.body) 
-        response.send (data);
+        res.send (data);
 
     } catch (err) {
         next(err);
@@ -48,7 +49,7 @@ routes.post('/',  async (req, res, next) => {
 
 
 //actualizo un producto por id
-routes.put('/:id',  async (req, res, next) => {
+routes.put('/:id', checkAdmin, async (req, res, next) => {
     const id = (req.params.id)
     const body = req.body
     try {
@@ -63,7 +64,7 @@ routes.put('/:id',  async (req, res, next) => {
 
 
 //borro un producto por id
-routes.delete('/:id',  async (req, res, next) => {
+routes.delete('/:id',checkAdmin,  async (req, res, next) => {
     try {
         const id =(req.params.id)
         await producto.deleteProduct(id)

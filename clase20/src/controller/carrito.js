@@ -1,28 +1,39 @@
 import { CarritoModel } from '../models/carrito'
 import { ProductosModel } from '../models/productos';
+import Producto from '../controller/productos'
+import moment from 'moment';
+
+
 
  export default class Carrito{
 	constructor() {
-				this.producto = new ProductosModel();				
+				this.producto = new Producto();				
 			
 		    }		
 
 			
 	async crearCarrito(carr) {
 		try {
-			const newCart = new CarritoModel(carr);
-			return await newCart.save();
-
-		} catch (err) {
+			const carritos = await this.listarAll();
+			if(carritos.length === 0){
+				const carrito = { timestamp: (moment().format('LLLL')), productos: [] };
+				const newElement = new CarritoModel(carrito);
+				const result = await newElement.save();
+				return result;
+			} else{
+				const carrito = { timestamp: (moment().format('LLLL')), productos: [] };
+				const newElement = new CarritoModel(carrito);
+				const result = await newElement.save();
+				return result;
+			}
+		   }  catch (err) {
 			console.log(err);
 			return { error: "No se pudo crear el carrito" }
 		}
 	}
 			async listar(id) {
 				try{
-					const contenido = await CarritoModel.find(id);					
-					return contenido;
-			
+					return await CarritoModel.findById(id)
 			
 				}catch(error){
 					return {error: "No existen carritos"}

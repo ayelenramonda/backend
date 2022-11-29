@@ -4,8 +4,9 @@ import { productosCollectionName } from './productos.js';
 export const carritoCollectionName = 'carrito';
 
 const carritoSchema = new mongoose.Schema({
-   
-    productos: []
+    id: Number,
+    timestamp : String,
+    productos: Array
 });
 
 export const CarritoModel = mongoose.model(

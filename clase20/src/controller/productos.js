@@ -3,12 +3,9 @@ import { ProductosModel } from '../models/productos';
 
 export default class Producto{
 	constructor() {       
-		this.id = 0
-		
+		this.id = 0	
 
     }
-
-
 
 	async getAll(){
 		try {
@@ -22,34 +19,25 @@ export default class Producto{
 		  }
 	}
 
-//aca quiero usar la validacion pero me pone res is not defined.. si tengo el producto lo trae
+
 	async getById (id) {
 	try{
 		
 		const producto = await ProductosModel.findById(id);
-
-		if(!producto)
-		return res.status(404).json({
-			msg: 'Product not found!'
-		});
-
 		return producto
       
-	} catch (err) {
-    res.status(500).json({
-      error: err.message
-    });
+	} catch (error){
+		return { error: "Producto no existe" };
+	}
   }
 
-}
 
 
 
-//este no me anda...
 async createProduct (producto) {
 try {
     const newProduct = new ProductosModel(producto);
-		return await newProduct.create();
+		return await newProduct.save();
     }
    catch (err) {
     res.status(500).json({
@@ -61,19 +49,11 @@ try {
 
 	async findByIdAndUpdate(id, updateProduct) {	
 		try {
-			
-
 			return await ProductosModel.findByIdAndUpdate(id, updateProduct)
-				
-
-		} catch(error){
+				} catch(error){
 			console.log(error)
 
 		}
-		
-		
-		
-
 	}
 
 

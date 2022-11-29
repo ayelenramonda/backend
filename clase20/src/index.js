@@ -1,6 +1,7 @@
 import { initMongoDB } from './db/database.js';
 import config from './config'
 import server from './services/server'
+import 'dotenv/config'
 
 
 const init = async () => {

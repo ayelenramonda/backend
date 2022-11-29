@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+import 'dotenv/config'
 
-const connectionString = 'mongodb://localhost:27017/ecommerce';
+const connectionString = process.env.MONGO_ATLAS //|| 'mongodb://localhost:27017/ecommerce'
 
 export const initMongoDB = async () => {
     try {
