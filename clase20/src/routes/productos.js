@@ -36,7 +36,7 @@ routes.get('/:id', async (req, res, next) => {
 
 
 //envio un objeto con el producto, se agrega el id 
-routes.post('/', checkAdmin, checkBodyProduct,  async (req, res, next) => {
+routes.post('/', checkAdmin, checkBodyProduct, async (req, res, next) => {
 	
     try {
         const data = await producto.createProduct(req.body) 
