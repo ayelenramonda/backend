@@ -16,12 +16,12 @@ import moment from 'moment';
 		try {
 			const carritos = await this.listarAll();
 			if(carritos.length === 0){
-				const carrito = { timestamp: (moment().format('LLLL')), productos: [] };
+				const carrito = { timestamp: (moment().format('LLLL')), productos: { ProductosModel } };
 				const newElement = new CarritoModel(carrito);
 				const result = await newElement.save();
 				return result;
 			} else{
-				const carrito = { timestamp: (moment().format('LLLL')), productos: [] };
+				const carrito = { timestamp: (moment().format('LLLL')), productos: { ProductosModel } };
 				const newElement = new CarritoModel(carrito);
 				const result = await newElement.save();
 				return result;
@@ -65,10 +65,16 @@ import moment from 'moment';
 			
 			// Agrega un producto específico en un carrito específico
 			
-			async guardarProductoEnCarrito(idProd, idCarrito) {
-				const prod = await this.producto.getById(idProd);
-				return await CarritoModel.findByIdAndUpdate({ _id: idCarrito }, { $push: { productos: prod } });
-		}
+		// 	async guardarProductoEnCarrito(idProd, idCarrito) {
+		// 		const prod = await this.producto.getById(idProd);
+		// 		return await CarritoModel.findByIdAndUpdate({ _id: idCarrito }, { $push: { productos: prod } });
+		// }
+		async guardarProductoEnCarrito(idProd, idCarrito) { 
+			const prod = await this.producto.getById(idProd); 			
+			console.log(prod)			
+			return await CarritoModel.findByIdAndUpdate({ _id: idCarrito }, { $push: { productos: prod } }); 
+			
+			}
 		
 		
 			// Borra un carrito en específico

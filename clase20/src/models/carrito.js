@@ -1,12 +1,13 @@
 import mongoose from 'mongoose';
-import { productosCollectionName } from './productos.js';
+import { productosSchema } from './productos.js';
 
 export const carritoCollectionName = 'carrito';
 
 const carritoSchema = new mongoose.Schema({
-    id: Number,
-    timestamp : String,
-    productos: Array
+    id: {type:Number},
+    timestamp : {type:String},
+    productos: {type: Array}
+    
 });
 
 export const CarritoModel = mongoose.model(

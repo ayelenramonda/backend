@@ -40,11 +40,10 @@ try {
 		return await newProduct.save();
     }
    catch (err) {
-    res.status(500).json({
-      error: err.message
-    });
+	return { error: "No se pudo ingresar el producto" }
+    };
   }
-}
+
 
 
 	async findByIdAndUpdate(id, updateProduct) {	
