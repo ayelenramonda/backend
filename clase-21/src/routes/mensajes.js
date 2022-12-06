@@ -30,5 +30,15 @@ routes.get("/", async (req,res)=>{
 
 	})
 	
+	routes.get("/desnormalizado", async (req,res)=>{
+		let fileData = await mensajes.getAllDesNorm()
+		res.send(fileData) 
+	
+		
+
+	})
+
+	
+	
 	export default routes
 
