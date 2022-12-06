@@ -1,10 +1,10 @@
 import { MensajesModel } from '../models/mensajes';
 import { denormalize, normalize, schema } from 'normalizr';
 
-//const mensajes =  MensajesModel.find({});
+const mensajes = MensajesModel.find({});
 const user = new schema.Entity('author',{},{idAttribute:'mail'})
 const msj = new schema.Entity('text', {author: user}, {idAttribute: '_id'})
-const finalSchema = {mensajes:[msj]}
+const finalSchema = new schema.Array(msj)
 
 export default class Mensajes{
 	constructor() {       
