@@ -1,10 +1,18 @@
 import { MensajesModel } from '../models/mensajes';
 import { denormalize, normalize, schema } from 'normalizr';
 
-const mensajes = MensajesModel.find({});
-const user = new schema.Entity('author',{},{idAttribute:'mail'})
-const msj = new schema.Entity('text', {author: user}, {idAttribute: '_id'})
-const finalSchema = new schema.Array(msj)
+
+const author = new schema.Entity('author', {}, { idAttribute: '_id' })
+const text = new schema.Entity('text', {}, { idAttribute: '_id' })
+const msgSchema = new schema.Entity(
+'message',
+author,
+text,
+)
+
+
+const finalSchema = new schema.Array(msgSchema)
+
 
 export default class Mensajes{
 	constructor() {       
@@ -14,7 +22,7 @@ export default class Mensajes{
 
 	async getAll(){
 		try {
-			const mensajes = await MensajesModel.find({});
+			const mensajes = await MensajesModel.find().lean();
 			return (mensajes)
 
 		}  catch (err) {
@@ -28,7 +36,7 @@ export default class Mensajes{
 	
 	async getAllNorm(){
 		try {
-			const mensajes = await MensajesModel.find({});
+			const mensajes = await MensajesModel.find({}).lean();
 			const normalizado = normalize(mensajes, finalSchema);
 
 			return (normalizado) 
@@ -43,11 +51,12 @@ export default class Mensajes{
 
 	async getAllDesNorm(){
 		try {
-			const mensajes = await MensajesModel.find({});
+			const mensajes = await MensajesModel.find({}).lean();
 			const normalizado = normalize(mensajes, finalSchema)
 			const desnormalizado = denormalize(normalizado.result, finalSchema,  normalizado.entities)
-
+			console.log(desnormalizado)
 			return (desnormalizado) 
+			
 
 		}  catch (err) {
 			return { error: "no se puede normalizar" };
