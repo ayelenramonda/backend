@@ -1,5 +1,9 @@
 import { MensajesModel } from '../models/mensajes';
 import { denormalize, normalize, schema } from 'normalizr';
+import fs from 'fs';
+import path from 'path';
+const filePath = path.resolve(__dirname, "../../normalizado.json");
+
 
 
 const author = new schema.Entity('author', {}, { idAttribute: '_id' })
@@ -36,10 +40,15 @@ export default class Mensajes{
 	
 	async getAllNorm(){
 		try {
+			const normalizedDataPath = path.join(filePath);
 			const mensajes = await MensajesModel.find({}).lean();
-			const normalizado = normalize(mensajes, finalSchema);
+			const normalizado = normalize(mensajes, finalSchema);			
+			let contenido = JSON.stringify(normalizado, null, '\t');
+		  
+			fs.writeFileSync(normalizedDataPath, contenido);
 
-			return (normalizado) 
+			
+			return(normalizado)
 
 		}  catch (err) {
 			res.status(500).json({
@@ -51,15 +60,19 @@ export default class Mensajes{
 
 	async getAllDesNorm(){
 		try {
-			const mensajes = await MensajesModel.find({}).lean();
-			const normalizado = normalize(mensajes, finalSchema)
-			const desnormalizado = denormalize(normalizado.result, finalSchema,  normalizado.entities)
+			const normalizedDataPath = path.join(filePath);
+			console.log(normalizedDataPath)
+			const normalizedMessagesData = JSON.parse(
+				fs.readFileSync(normalizedDataPath)
+			  );
+			
+			const desnormalizado = denormalize(normalizedMessagesData.result, finalSchema,  normalizedMessagesData.entities)
 			console.log(desnormalizado)
 			return (desnormalizado) 
 			
 
 		}  catch (err) {
-			return { error: "no se puede normalizar" };
+			return { error: "no se puede desnormalizar" };
 		  }
 
 	}
