@@ -1,14 +1,14 @@
-#Nombre de prueba
-juan
-jose
+# Nombre de prueba
+- juan
+- jose
 
-#Rutas de prueba
-api/user/login
-api/user/visitas
-api/user/info
-api/user/logout
+# Rutas de prueba
+- api/user/login
+- api/user/visitas
+- api/user/info
+- api/user/logout
 
-#Tiempo de sesión
+# Tiempo de sesión
 300"
 
 Se verificó los datos del cliente, y la destrución de la sesión pasado el tiempo indicado.
