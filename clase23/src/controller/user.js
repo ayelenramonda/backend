@@ -1,58 +1,62 @@
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const users = [
-    {
-      username: 'juan',
-      password : '1234',
-      admin: true,
-    },
-    {
-      username: 'jose',
-      password : '123456',
-      admin: false,
-    }
-]
+  {
+    nombre: "clara",
+  },
+  {
+    nombre: "jose",
+  }, 
 
-export const login = (req, res) => {
-    const { username } = req.body;
-   
-	const index = users.findIndex((aUser) => aUser.username === username );
-
-	if(index < 0)
-	  res.status(401).json({ msg: 'no estas autorizado' });
-	else {
-	  const user = users[index];
-	  req.session.info = {
-		loggedIn: true,
-		contador : 1,
-		username : user.username,
-		admin : user.admin,
-	  };
-	  res.json({msg:  `Bienvenido ${req.session.info.username}`})
-	}
-  };
-
-
-export const visit = (req, res) => {
-    req.session.info.contador++;
-    res.json({
-      msg: `${req.session.info.username} visitaste el sitio ${req.session.info.contador} veces`,
-    });
+  {username: 'juan',
+ 
 }
+];
+
+export const loginPost = (req, res) => {
+  const { nombre } = req.body;
+
+  const index = users.findIndex((aUser) => aUser.nombre === nombre);
+
+  if (index < 0) res.status(401).json({ msg: "no estas autorizado" });
+  else {
+    req.session.nombre = nombre;
+    res.redirect("/home");
+  }
+};
+
+export const loginGet = (req, res) => {
+  const nombre = req.session?.nombre;
+  if (nombre) {
+    res.redirect("/home");
+  } else {
+    res.sendFile(path.join(__dirname, "../../views/login.html"));
+  }
+};
 
 export const logout = (req, res) => {
-		const { username } = req.session?.info
-		req.session.destroy((err) => {
-		  if (!err) res.json({msg:  `Hasta luego ${username}`});
-		  else res.send({ status: 'Logout ERROR', body: err });
-		});
-	  
-}
-
-
+  const nombre = req.session?.nombre;
+  if (nombre) {
+    req.session.destroy((err) => {
+      if (!err) {
+        res.render(path.join(__dirname, "../../views/partials/logout.ejs"), {
+          nombre,
+        });
+      } else {
+        res.redirect("/");
+      }
+    });
+  } else {
+    res.redirect("/");
+  }
+};
 
 export const infoSession = (req, res) => {
-    res.send({
-      session: req.session,
-      sessionId: req.sessionID,
-      cookies: req.cookies,
-    });
-}
+  res.render(path.join(__dirname, "../../views/partials/home.ejs"), {
+    nombre: req.session.nombre,
+  });
+};
