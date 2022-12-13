@@ -4,7 +4,7 @@ import MongoStore from 'connect-mongo'
 import config from './db/database.js'
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
-import path from 'path'
+
 
 // tiempo de sesion
 const ttlSeconds = 300;

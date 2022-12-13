@@ -38,6 +38,7 @@ export const loginGet = (req, res) => {
   }
 };
 
+
 export const logout = (req, res) => {
   const nombre = req.session?.nombre;
   if (nombre) {
@@ -58,5 +59,6 @@ export const logout = (req, res) => {
 export const infoSession = (req, res) => {
   res.render(path.join(__dirname, "../../views/partials/home.ejs"), {
     nombre: req.session.nombre,
+    
   });
 };
