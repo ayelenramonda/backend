@@ -11,7 +11,13 @@ const strategyOptions = {
 const signup = async (req, username, password, done) => {
   console.log('SIGNUP!');
   try {
-    const newUser = await UserModel.create({username, password});
+  
+    const user = await UserModel.findOne({ username });
+  
+    if (user) {
+       return done(null, false, { message: "usuario resgistrado" });
+   }
+  const newUser = await UserModel.create({username, password});
 	newUser.password = await newUser.encryptPassword(password)
 	await newUser.save()
     return done(null, newUser);
