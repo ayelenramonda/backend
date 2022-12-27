@@ -1,4 +1,9 @@
-## Rutas ppara probar
+## Ruta para info
+
+## Ruta para aclculo random
+
+
+## Rutas para probar usuario
 - api/sigin -> registro de usuario con username y password
 - api/login 
 - api/home 
