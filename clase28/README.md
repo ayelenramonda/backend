@@ -2,6 +2,7 @@
 - api/info 
 
 ## Ruta para aclculo random
+- api/randoms?cant=x
 
 
 ## Rutas para probar usuario
