@@ -1,4 +1,5 @@
 ## Ruta para info
+- api/info 
 
 ## Ruta para aclculo random
 

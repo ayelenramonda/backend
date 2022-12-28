@@ -28,7 +28,7 @@ export const getHome = (req, res) => {
 } 
 
 
-  export const logout = (req, res) => {
+  export const logout = (   ) => {
        req.session.destroy((err) => {
       if (!err) res.send('Nos vemos');
       else res.send({ status: 'Logout ERROR', body: err });

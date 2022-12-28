@@ -1,16 +1,19 @@
 import express from 'express'
-import rutaPrincipal from './routes/user.router.js'
+import rutaPrincipal from './routes/index.js'
 import MongoStore from 'connect-mongo'
 import config from './config/index.js'
 import session from 'express-session';
 import passport from 'passport';
 import { loginFunc, signUpFunc } from './services/auth.js'
 import { initDb } from './db/database.js';
+import InfoRouter from './routes/info.js'
+import RandomRouter from './routes/random.router.js'
+
 
 await initDb()
 console.log('conenctado a la db')
 
-// tiempo de sesion
+// tiempo de sesions
 const ttlSeconds = 600;
 
 const StoreOptions = {
@@ -49,7 +52,7 @@ app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
 //app.set('views', viewsFolderPath)
 
-app.use('/api', rutaPrincipal)
+app.use('/api',InfoRouter, RandomRouter)
 
 
 app.use((err, req, res, next) => {
