@@ -1,7 +1,7 @@
 ## Ruta para info
 - api/info 
 
-## Ruta para aclculo random
+## Ruta para cálculo random
 - api/randoms?cant=x
 
 
