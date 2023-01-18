@@ -1,0 +1,47 @@
+[2023-01-18T07:26:50.496] [INFO] default - Servidor express escuchando en el puerto 8080
+[2023-01-18T07:26:54.850] [FATAL] default - ReferenceError: res is not defined
+    at file:///C:/Users/Aramonda/Downloads/BackEnd/clase32/src/loggers/src/index.js:43:5
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+[2023-01-18T07:26:56.389] [FATAL] default - ReferenceError: res is not defined
+    at file:///C:/Users/Aramonda/Downloads/BackEnd/clase32/src/loggers/src/index.js:43:5
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+[2023-01-18T07:32:09.032] [FATAL] default - ReferenceError: res is not defined
+    at file:///C:/Users/Aramonda/Downloads/BackEnd/clase32/src/loggers/src/index.js:43:5
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+[2023-01-18T07:32:15.703] [WARN] default - PID => 2380
+[2023-01-18T07:32:48.213] [WARN] default - PID => 2380 will work slow
+[2023-01-18T07:33:10.606] [FATAL] default - ReferenceError: res is not defined
+    at file:///C:/Users/Aramonda/Downloads/BackEnd/clase32/src/loggers/src/index.js:43:5
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Aramonda\Downloads\BackEnd\clase32\node_modules\express\lib\router\layer.js:95:5)
