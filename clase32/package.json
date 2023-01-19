@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "scripts": {    
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/profilling/index.js",
     "start:fork": "node ./src/profilling/index.js --puerto=8081",
@@ -12,12 +12,10 @@
     "start:profilling": "node --prof src/profilling/index.js",
     "start:profillingProcess": "node --prof-process isolate.log > isolate.txt",
     "start:inspect": "node --inspect ./src/profilling/index.js",
-    "dev": "nodemon ./src/profilling/index.js",
-    "artillery:fork": "artillery quick --count 50 -n 20 http://localhost:8081/info > result_profilling.txt",
+    "artillery:fork": "artillery quick --count 50 -n 20 http://localhost:8081/info > result_prof.txt",
     "artillery:cluster": "artillery quick --count 50 -n 20 http://localhost:8082/info",
     "autocannon": "autocannon -c 100 -d 20 'http://localhost:8080/info'",
     "start:0x": "0x ./src/profilling/index.js"
-    
   },
   "repository": {
     "type": "git",
@@ -27,23 +25,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "0x": "^5.4.1",
+    "artillery": "^2.0.0-28",
+    "autocannon": "^7.10.0",
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
     "express-session": "^1.17.3",
+    "log4js": "^6.7.1",
+    "minimist": "1.2.7",
     "moment": "^2.29.4",
     "mongoose": "^6.7.3",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "express-async-handler": "^1.2.0",
-    "yargs": "^17.6.2",
-    "minimist": "1.2.7",
-    "artillery": "^2.0.0-28",
-    "autocannon": "^7.10.0",
-    "compression": "^1.7.4",
-    "log4js":"^6.7.1"
+    "yargs": "^17.6.2"
   }
 }
