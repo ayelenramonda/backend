@@ -1,0 +1,169 @@
+////////////USER
+
+///nuevo usuario
+
+curl --location --request POST 'localhost:8080/api/user/signup' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AxxA_nn5CngiMwEVh2zoyBBRkR9MUQqsU.ZvVEz4%2Bnl1ykQrkKpLio29yRGDXXhk3U66a3E5hsCGk' \
+--data-raw '{"username":"clara45",
+"password":"123",
+"name":"clara lopez",
+"phone":"1152639874",
+"address":"direccion 123",
+"age":"56",
+"avatar":"www.google.com"}'
+
+
+// login del usuario
+
+curl --location --request POST 'localhost:8080/api/user/login' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AZw-k-SQZ3yQ1GAl9zB7Svs3egX68XM_G.Jf38N1vVUBvvEbrLuVgNT6VEcWJkH0I8TiMvB8TWl5c' \
+--data-raw '{"username":"clara45",
+"password":"123"
+}'
+
+/// info del usuario
+
+curl --location --request GET 'localhost:8080/api/user/home' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AZw-k-SQZ3yQ1GAl9zB7Svs3egX68XM_G.Jf38N1vVUBvvEbrLuVgNT6VEcWJkH0I8TiMvB8TWl5c' \
+--data-raw '{"username":"clara45",
+"password":"123"
+}'
+
+/// logout
+
+curl --location --request POST 'localhost:8080/api/user/logout' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AZw-k-SQZ3yQ1GAl9zB7Svs3egX68XM_G.Jf38N1vVUBvvEbrLuVgNT6VEcWJkH0I8TiMvB8TWl5c' \
+--data-raw '{"username":"clara45",
+"password":"123"
+}'
+
+////////////carrito
+
+////crear carrito
+
+curl --location --request POST 'localhost:8080/api/carrito' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AWh_yBqInJuF5VYdpQ3IeHB22rIPMv1NY.6T%2Bq8Wr5DarDKxEmZcZvEV5hxS%2Bb2DWhraUqPacNPhw' \
+--data-raw '{"id": "c7bf1e7f-eedb-4cf2-afc4-4412388cc26d",
+"timeStamp": "",
+"productos": []}'
+
+
+/////borrar carrito
+
+curl --location --request DELETE 'localhost:8080/api/carrito/63de29a41efcc57acb3bfcb2' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AeOPnNnjtGYXvFHWYqqZABqFm1BqOJLm2.fac1U5JDXxKcXj5D%2FcUNwNb0SWJmzaAMmlry2K5zLeQ' \
+--data-raw '{"username": "clara45",
+"password": "123"
+}'
+
+
+////agregar producto al carrito
+
+curl --location --request POST 'localhost:8080/api/carrito/638612eacaf4c21ba19c8f5b/productos/6386080565873652ce6b9241' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AeOPnNnjtGYXvFHWYqqZABqFm1BqOJLm2.fac1U5JDXxKcXj5D%2FcUNwNb0SWJmzaAMmlry2K5zLeQ' \
+--data-raw '{"username": "clara45",
+"password": "123"
+}'
+
+
+///borrar producto de carrito
+
+curl --location --request DELETE 'localhost:8080/api/carrito/638612eacaf4c21ba19c8f5b/productos/63861a90553d6ceceba06b79' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AeOPnNnjtGYXvFHWYqqZABqFm1BqOJLm2.fac1U5JDXxKcXj5D%2FcUNwNb0SWJmzaAMmlry2K5zLeQ' \
+--data-raw '{"username": "clara45",
+"password": "123"
+}'
+
+///traer productos de carrito
+
+curl --location --request GET 'localhost:8080/api/carrito/638664bd9fc58e11f6dd7583/productos' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AMTnlZdSrFxHFF1jMMAnwL83rhrt3dDP6.e8skifzyR4wa5vFVrK02u2ED8Ce%2B8h7%2Bsm0raws3Qi8' \
+--data-raw '{"username": "clara45",
+"password": "123"
+}'
+
+///todos los carritos
+
+curl --location --request GET 'localhost:8080/api/carrito' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AMTnlZdSrFxHFF1jMMAnwL83rhrt3dDP6.e8skifzyR4wa5vFVrK02u2ED8Ce%2B8h7%2Bsm0raws3Qi8' \
+--data-raw '{"username": "clara45",
+"password": "123"
+}'
+
+//compra del carrito
+
+curl --location --request GET 'localhost:8080/api/carrito/compra/6386641c91d2df24569828b9' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3ARDPcvTWDdlfEt0KTUCqrKP8PThRYcloZ.T3%2BoK8BByDUdRLKi9h5tcvl4Sae9VsxjD1friCXY1O0' \
+--data-raw '{
+    "username":"clara33",
+    "password":"123"
+}
+'
+
+/////////////////////PRODUCTOS
+
+////todos los productos
+
+curl --location --request GET 'localhost:8080/api/productos' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AMTnlZdSrFxHFF1jMMAnwL83rhrt3dDP6.e8skifzyR4wa5vFVrK02u2ED8Ce%2B8h7%2Bsm0raws3Qi8' \
+--data-raw '{"username": "clara45",
+"password": "123"
+}'
+
+///un producto
+
+curl --location --request GET 'localhost:8080/api/productos/6386080565873652ce6b9241' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AMTnlZdSrFxHFF1jMMAnwL83rhrt3dDP6.e8skifzyR4wa5vFVrK02u2ED8Ce%2B8h7%2Bsm0raws3Qi8' \
+--data-raw '{"username": "clara45",
+"password": "123"
+}'
+
+
+/// agregar un producto
+
+curl --location --request POST 'localhost:8080/api/productos/' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3AMTnlZdSrFxHFF1jMMAnwL83rhrt3dDP6.e8skifzyR4wa5vFVrK02u2ED8Ce%2B8h7%2Bsm0raws3Qi8' \
+--data-raw '{
+    "title":"silla roja",
+    "price":456,
+    "thumbnail":"https://cdn-icons-png.flaticon.com/512/6404/6404680.png",
+    "stock":100
+}'
+
+/// actualizar un producto
+
+curl --location --request PUT 'localhost:8080/api/productos/63de2d9c36ab6ce50898b676' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3ApuaN3Whee0QPG6SlI2jzUQPYTMQ4lwCc.g%2F8hiezVThGkkhPf%2BxW2L%2FaJxXwR0o3x6ljunh7zWG4' \
+--data-raw '{
+    "title":"silla verde",
+    "price":456,
+    "thumbnail":"https://cdn-icons-png.flaticon.com/512/6404/6404680.png",
+    "stock":100
+}'
+
+//borrar un producto
+
+curl --location --request DELETE 'localhost:8080/api/productos/63de2d9c36ab6ce50898b676' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: connect.sid=s%3ApuaN3Whee0QPG6SlI2jzUQPYTMQ4lwCc.g%2F8hiezVThGkkhPf%2BxW2L%2FaJxXwR0o3x6ljunh7zWG4' \
+--data-raw '{
+    "title":"silla verde",
+    "price":456,
+    "thumbnail":"https://cdn-icons-png.flaticon.com/512/6404/6404680.png",
+    "stock":100
+}'

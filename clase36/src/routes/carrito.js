@@ -85,6 +85,8 @@ routes.post("/", async (req, res) => {
 		);
 		res.send(respuesta);
 	});
+
+	
 	routes.get("/compra/:id", finalizarCompra)
 	
 	
