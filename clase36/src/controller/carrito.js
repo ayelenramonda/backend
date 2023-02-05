@@ -4,9 +4,14 @@ import Producto from '../controller/productos'
 import moment from 'moment';
 import { actualUser } from "../services/auth.js";
 import { createTransport } from "nodemailer";
-import { sendSms, sendWhastapp } from '../sms/sms.service.js'
+//import { sendSms, sendWhastapp } from '../sms/sms.service.js'
 import dotenv from "dotenv";
+import twilio from 'twilio';
 dotenv.config();
+
+
+
+export const twilioClient = twilio(process.env.SID, process.env.TOKEN);
 
 
 let username;
@@ -140,11 +145,14 @@ let name;
 			username: carrito.username,
 			name: carrito.name,
 		  });
+
+		  
 	  
 		  await compraMail(username, carrito);		  
 		  await sendSms(actualUser.phone);
 		  await sendWhastapp(actualUser.phone)
 		  console.log(actualUser)
+		  console.log(actualUser.phone )
 		  
 		  return res.status(200).json({
 			mensaje: "Tu compra fue precesada",
@@ -180,6 +188,37 @@ let name;
 			pass:process.env.PASSWORD,
 		}
 	  });
+
+	  async function sendSms (phone)  {
+		try {
+		  console.log(phone);
+		  const message = {
+			body: "Pedido recibido!",
+			from: process.env.SMS,
+			to: "+54" + phone,
+		  };
+		  const response = await twilioClient.messages.create(message);
+		 response.json(response);
+		 
+		} catch (error) {
+		  console.log(error)
+		  
+		}
+	  };
+
+	  async function sendWhastapp (username) {
+		try {
+		  const message = {
+			body: `Se ingreso un pedido del usuario ${username} - ${name}. `,
+			from: process.env.CEL,
+			to: "whatsapp:+549" + actualUser.phone,
+		  };
+		  const response = await twilioClient.messages.create(message);
+		  res.json(response);
+		} catch (error) {
+		  console.log(error);
+		}
+	  };
 	  
 
 	
