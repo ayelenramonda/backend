@@ -30,7 +30,7 @@ export default class DaoMongoDB {
 
 	async getById(id) {
 		try {
-			const producto = await this.collection.findOne(id);
+			const producto = await this.collection.findById(id);
 			return producto;
 		} catch (error) {
 			return { error: 'Producto no existe' };

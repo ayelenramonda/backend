@@ -31,7 +31,7 @@ export default class ProductosRepository {
 
 	async getById(id) {
 		try {
-			const producto = await this.dao.findOne(id);
+			const producto = await this.dao.getdById(id);
 			return producto;
 		} catch (error) {
 			return { error: 'Producto no existe' };

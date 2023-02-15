@@ -13,8 +13,8 @@ export async function getAllProducts() {
 	return products;
 }
 
-export async function getById() {
-	const products = await productosRepository.getById();
+export async function getById({ id }) {
+	const products = await productosRepository.getById(id);
 	return products;
 }
 

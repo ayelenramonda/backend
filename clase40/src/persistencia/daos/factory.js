@@ -26,8 +26,8 @@ export async function getAll() {
 	return await dao.getAll();
 }
 
-export async function getById() {
-	return await dao.getById();
+export async function getById(id) {
+	return await dao.getById(id);
 }
 
 export async function deleteProduct() {
