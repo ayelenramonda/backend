@@ -13,12 +13,12 @@ export async function getAllProducts() {
 	return products;
 }
 
-export async function getById({ id }) {
-	const products = await productosRepository.getById(id);
-	return products;
-}
+export const getById = async (id) => {
+	const getNew = await productosRepository.getById(id);
+	return getNew;
+};
 
-export async function deleteOneProduct() {
-	const products = await productosRepository.deleteProduct();
+export async function deleteOneProduct(id) {
+	const products = await productosRepository.deleteProduct(id);
 	return products;
 }

@@ -10,7 +10,7 @@ export default class ProductosRepository {
 		try {
 			const productos = await this.dao.getAll();
 			const dtoProducto = asDto(productos);
-			console.log(dtoProducto + 'repository');
+
 			return dtoProducto;
 		} catch (err) {
 			res.status(500).json({
@@ -31,10 +31,11 @@ export default class ProductosRepository {
 
 	async getById(id) {
 		try {
-			const producto = await this.dao.getdById(id);
+			const producto = await this.dao.getById(id);
 			return producto;
 		} catch (error) {
-			return { error: 'Producto no existe' };
+			console.log(error);
+			return { error: 'Producto no existe repository' };
 		}
 	}
 
@@ -47,8 +48,8 @@ export default class ProductosRepository {
 	}
 
 	async deleteProduct(id) {
-		let product = await this.dao.findOne(id);
-		return await this.dao.findByIdAndDelete(product._id);
+		let product = await this.dao.deleteProduct(id);
+		return product;
 	}
 	catch(err) {
 		console.log(err);

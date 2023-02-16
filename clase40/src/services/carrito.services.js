@@ -12,10 +12,10 @@ export async function listarAllCarritos() {
 	return carrito;
 }
 
-export async function listarCarrito(id) {
+export const listarCarrito = async (id) => {
 	const carrito = await carritoRepository.listar(id);
 	return carrito;
-}
+};
 
 export async function listarProducto() {
 	const prod = await carritoRepository.listarProd();
@@ -32,7 +32,7 @@ export async function borrar() {
 	return carrito;
 }
 
-export async function borrarProd() {
-	const carrito = await carritoRepository.borrarProd();
+export async function borrarProd(idProd, idCarrito) {
+	const carrito = await carritoRepository.borrarProd(idProd, idCarrito);
 	return carrito;
 }

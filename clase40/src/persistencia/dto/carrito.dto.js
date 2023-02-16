@@ -1,5 +1,6 @@
 export default class CarritoDTO {
 	constructor({ name, productos }) {
+		this.id = id;
 		this.name = name;
 		this.productos = productos;
 	}

@@ -1,25 +1,23 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import { ProductosModel } from './schema/schema.productos.js';
 
 dotenv.config();
 
-export const initDb = async () => {
-	try {
-		await mongoose.connect(process.env.MONGO_ATLAS);
-		console.log('Conectado a Mongo!');
-	} catch (error) {
-		console.log(error);
-	}
-};
-
 export default class DaoMongoDB {
-	constructor(collection, schema) {
-		this.collection = mongoose.model(collection, schema);
+	static init() {
+		mongoose.connect(process.env.MONGO_ATLAS, (err) => {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log('Conectado a MongoDB!');
+			}
+		});
 	}
 
 	async getAll() {
 		try {
-			const productos = await this.collection.find({});
+			const productos = await ProductosModel.find({});
 			return productos;
 		} catch (err) {
 			res.status(500).json({
@@ -30,16 +28,16 @@ export default class DaoMongoDB {
 
 	async getById(id) {
 		try {
-			const producto = await this.collection.findById(id);
+			const producto = await ProductosModel.findById(id);
 			return producto;
 		} catch (error) {
-			return { error: 'Producto no existe' };
+			return { error: 'Producto no existe mongoDB' };
 		}
 	}
 
 	async createProduct(producto) {
 		try {
-			const newProduct = new this.collection(producto);
+			const newProduct = new ProductosModel(producto);
 			console.log(newProduct);
 			return await newProduct.save();
 		} catch (err) {
@@ -49,17 +47,18 @@ export default class DaoMongoDB {
 
 	async findByIdAndUpdate(id, updateProduct) {
 		try {
-			return await this.collection.findByIdAndUpdate(id, updateProduct);
+			return await ProductosModel.findByIdAndUpdate(id, updateProduct);
 		} catch (error) {
 			console.log(error);
 		}
 	}
 
 	async deleteProduct(id) {
-		let product = await this.collection.findOne(id);
-		return await this.collection.findByIdAndDelete(product._id);
-	}
-	catch(err) {
-		console.log(err);
+		try {
+			let product = await ProductosModel.deleteOne({ id });
+			return product;
+		} catch (error) {
+			console.log(error);
+		}
 	}
 }

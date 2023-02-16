@@ -28,7 +28,7 @@ export const crearcarritoController = async (req, res) => {
 export const listar = async (req, res) => {
 	try {
 		const { id } = req.params;
-		let carrito = await listar({ id });
+		let carrito = await listarCarrito(id);
 		console.log(carrito);
 		return res.status(200).json({
 			data: carrito

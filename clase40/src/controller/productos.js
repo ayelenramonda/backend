@@ -28,7 +28,7 @@ export const getAllController = async (req, res) => {
 export const getByIdC = async (req, res) => {
 	try {
 		const { id } = req.params;
-		let product = await getById({ id });
+		let product = await getById(id);
 		console.log(product);
 		return res.status(200).json({
 			data: product
@@ -38,9 +38,9 @@ export const getByIdC = async (req, res) => {
 	}
 };
 
-export const DeleteProductController = async (req, res) => {
+export async function deleteProductController(req, res) {
 	try {
-		const id = req.params.id;
+		const { id } = req.params;
 		let product = await deleteOneProduct(id);
 		return res.status(200).json({
 			data: product
@@ -48,4 +48,4 @@ export const DeleteProductController = async (req, res) => {
 	} catch (error) {
 		console.log(error);
 	}
-};
+}

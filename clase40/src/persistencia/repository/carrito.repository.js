@@ -18,18 +18,9 @@ export default class CarritoRepository {
 
 	async crearCarrito(carr) {
 		try {
-			const carritos = await this.listarAll();
-			if (carritos.length === 0) {
-				const carrito = { timestamp: moment().format('LLLL'), productos: { ProductosModel } };
-				const newElement = new this.collection(carrito);
-				const result = await newElement.save();
-				return result;
-			} else {
-				const carrito = { timestamp: moment().format('LLLL'), productos: { ProductosModel } };
-				const newElement = new this.collection(carrito);
-				const result = await newElement.save();
-				return result;
-			}
+			const newCarrito = await this.dao.crearCarrito(carr);
+			console.log(newCarrito);
+			return newCarrito;
 		} catch (err) {
 			return res.status(500).json({
 				error: err.message,
@@ -39,34 +30,36 @@ export default class CarritoRepository {
 	}
 
 	async listarProd(id) {
-		const carrProd = await this.listar(id);
+		const carrProd = await this.dao.listar(id);
 		return carrProd.productos;
 	}
 
 	///listar id  de carrito
 	async listar(id) {
 		try {
-			const producto = await this.collection.findOne(id);
-			const carrDto = asDtoCarr(carr);
-			return carrDto;
+			const carr = await this.dao.listar(id);
+			//const carrDto = asDtoCarr(carr);
+			return carr;
 		} catch (error) {
+			console.log(error);
 			return { error: 'No existen carritos' };
 		}
 	}
 
 	async guardarProductoEnCarrito(idProd, idCarrito) {
-		const prod = await this.producto.getById(idProd);
-		console.log(prod);
-		return await this.collection.findByIdAndUpdate(
-			{ _id: idCarrito },
-			{ $push: { productos: prod } }
-		);
+		try {
+			const prod = await this.dao.guardarProductoEnCarrito(idProd, idCarrito);
+			console.log(prod);
+			return prod;
+		} catch (error) {
+			console.log(error);
+		}
 	}
 
 	// Borra un carrito en específico
 	async borrar(id) {
 		try {
-			return await this.collection.findByIdAndDelete(id);
+			return await this.dao.borrar(id);
 		} catch (err) {
 			return { error: 'No se pudo eliminar el carrito' };
 		}
@@ -75,8 +68,8 @@ export default class CarritoRepository {
 	// Borra un producto en específico de un carrito
 	async borrarProd(idProd, idCarrito) {
 		try {
-			const prod = await this.producto.getById(idProd);
-			return await this.collection.findByIdAndUpdate(idCarrito, { $pull: { productos: prod } });
+			const prod = await this.dao.borrarProd(idProd, idCarrito);
+			return prod;
 		} catch (err) {
 			return { error: 'No se pudo eliminar el producto' };
 		}
