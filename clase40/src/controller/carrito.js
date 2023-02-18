@@ -1,7 +1,7 @@
 import {
 	newCarrito,
 	listarAllCarritos,
-	listar,
+	getByIdCarr,
 	listarProducto,
 	guardarOneProduct,
 	borrar,
@@ -25,19 +25,30 @@ export const crearcarritoController = async (req, res) => {
 		console.log(error);
 	}
 };
-export const listarC = async (req, res) => {
+export const getByIdC = async (req, res) => {
 	try {
-		const carritoId = req.params.id;
-		let carrito = await listar(carritoId);
-		console.log(carrito);
+		const { id } = req.params;
+		let product = await getByIdCarr(id);
+		console.log(product);
 		return res.status(200).json({
-			data: carrito
+			data: product
 		});
 	} catch (error) {
 		console.log(error);
 	}
 };
 
+// export async function getNewCtr(req, res) {
+// 	try {
+// 		const { id } = req.params;
+// 		const news = await getNew(id);
+// 		if (news) {
+// 			res.status(200).json(news);
+// 		}
+// 	} catch (error) {
+// 		res.status(501).send(error.message);
+// 	}
+// }
 //Obtener un producto de un carrito
 export const listarProd = async (req, res) => {
 	try {

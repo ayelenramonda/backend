@@ -22,10 +22,11 @@ export default class CarritoRepository {
 			console.log(newCarrito);
 			return newCarrito;
 		} catch (err) {
-			return res.status(500).json({
-				error: err.message,
-				stack: err.stack
-			});
+			console.log(err);
+			// return res.status(500).json({
+			// 	error: err.message,
+			// 	stack: err.stack
+			// });
 		}
 	}
 
@@ -35,14 +36,13 @@ export default class CarritoRepository {
 	}
 
 	///listar id  de carrito
-	async listar(id) {
+	async getByIdCarr(_id) {
 		try {
-			const carr = await this.dao.listar(id);
-			//const carrDto = asDtoCarr(carr);
-			return carr;
+			const carrito = await this.dao.getByIdCarr({ _id });
+			return carrito;
 		} catch (error) {
 			console.log(error);
-			return { error: 'No existen carritos' };
+			return { error: 'carrito no existe repository' };
 		}
 	}
 

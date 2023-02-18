@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const Schema = new mongoose.Schema({
-	id: { type: Number },
+	_id: { Object },
 	timestamp: { type: String },
 	productos: { type: Array },
 	username: { type: String },

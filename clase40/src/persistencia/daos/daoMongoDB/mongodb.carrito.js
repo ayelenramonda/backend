@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { CarritoModel } from './schema/schema.carrito.js';
+import moment from 'moment/moment.js';
+import { ProductosModel } from './schema/schema.productos.js';
 
 dotenv.config();
 
@@ -30,22 +32,20 @@ export default class DaoMongoDBCart {
 				return result;
 			}
 		} catch (err) {
-			return res.status(500).json({
-				error: err.message,
-				stack: err.stack
-			});
+			console.log(err);
+			// return res.status(500).json({
+			// 	error: err.message,
+			// 	stack: err.stack
+			// });
 		}
 	}
-	async listar(id) {
+	async getByIdCarr({ id }) {
 		try {
-			let carr = await CarritoModel.findById(id);
-			console.log(carr);
-			return carr;
-		} catch (err) {
-			console.log(err);
-			res.status(500).json({
-				error: err.message
-			});
+			const carrito = await CarritoModel.findById({ _id: id });
+			return carrito;
+		} catch (error) {
+			console.log(error + 'mongo');
+			return { error: 'Producto no existe mongoDB' };
 		}
 	}
 

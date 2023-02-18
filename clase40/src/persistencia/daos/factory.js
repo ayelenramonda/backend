@@ -55,8 +55,14 @@ export async function listarAll() {
 	return await daoCarrito.listarAll();
 }
 
-export async function listar(id) {
-	return await daoCarrito.listar(id);
+export async function getByIdCarr({ id }) {
+	try {
+		let carrito = await daoCarrito.getByIdCarr(id);
+		console.log(carrito);
+		return carrito;
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 export async function borrar(id) {

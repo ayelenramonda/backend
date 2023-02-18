@@ -12,10 +12,14 @@ export async function listarAllCarritos() {
 	return carrito;
 }
 
-export const listar = async (id) => {
-	const carrito = await carritoRepository.listar(id);
-	return carrito;
-};
+export async function getByIdCarr({ id }) {
+	try {
+		const getNew = await carritoRepository.getByIdCarr(id);
+		return getNew;
+	} catch (error) {
+		console.log(error);
+	}
+}
 
 export async function listarProducto() {
 	const prod = await carritoRepository.listarProd();
