@@ -1,7 +1,7 @@
 import {
 	newCarrito,
 	listarAllCarritos,
-	listarCarrito,
+	listar,
 	listarProducto,
 	guardarOneProduct,
 	borrar,
@@ -25,10 +25,10 @@ export const crearcarritoController = async (req, res) => {
 		console.log(error);
 	}
 };
-export const listar = async (req, res) => {
+export const listarC = async (req, res) => {
 	try {
-		const { id } = req.params;
-		let carrito = await listarCarrito(id);
+		const carritoId = req.params.id;
+		let carrito = await listar(carritoId);
 		console.log(carrito);
 		return res.status(200).json({
 			data: carrito

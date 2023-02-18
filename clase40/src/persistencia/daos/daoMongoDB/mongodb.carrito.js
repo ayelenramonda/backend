@@ -41,9 +41,11 @@ export default class DaoMongoDBCart {
 			let carr = await CarritoModel.findById(id);
 			console.log(carr);
 			return carr;
-		} catch (error) {
-			console.log(error);
-			return { error: 'No existen carritos' };
+		} catch (err) {
+			console.log(err);
+			res.status(500).json({
+				error: err.message
+			});
 		}
 	}
 

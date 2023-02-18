@@ -12,7 +12,7 @@ export async function listarAllCarritos() {
 	return carrito;
 }
 
-export const listarCarrito = async (id) => {
+export const listar = async (id) => {
 	const carrito = await carritoRepository.listar(id);
 	return carrito;
 };
