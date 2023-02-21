@@ -45,9 +45,9 @@ export default class DaoMongoDB {
 		}
 	}
 
-	async findByIdAndUpdate(id, updateProduct) {
+	async updateProducto(id, updateProduct) {
 		try {
-			return await ProductosModel.findByIdAndUpdate(id, updateProduct);
+			return await ProductosModel.updateOne(id, updateProduct);
 		} catch (error) {
 			console.log(error);
 		}

@@ -3,7 +3,8 @@ import {
 	saveController,
 	getAllController,
 	getByIdC,
-	deleteProductController
+	deleteProductController,
+	updateProductoController
 } from '../controller/productos';
 
 const router = Router();
@@ -12,5 +13,6 @@ router.post('/', saveController);
 router.get('/list', getAllController);
 router.get('/:id', getByIdC);
 router.delete('/:id', deleteProductController);
+router.put('/:id', updateProductoController);
 
 export default router;

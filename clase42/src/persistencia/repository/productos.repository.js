@@ -39,12 +39,9 @@ export default class ProductosRepository {
 		}
 	}
 
-	async findByIdAndUpdate(id, updateProduct) {
-		try {
-			return await this.dao.findByIdAndUpdate(id, updateProduct);
-		} catch (error) {
-			console.log(error);
-		}
+	async updateProducto(id, updateProduct) {
+		const updateProducto = await this.dao.updateNew(id, updateProduct);
+		return updateProducto;
 	}
 
 	async deleteProduct(id) {

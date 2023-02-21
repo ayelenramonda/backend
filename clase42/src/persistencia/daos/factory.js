@@ -36,6 +36,9 @@ export async function getById(id) {
 export async function deleteProduct(id) {
 	return await dao.deleteProduct(id);
 }
+export async function updateProducto(id, updateProduct) {
+	return await dao.updateProducto(id, updateProduct);
+}
 
 export function getDao() {
 	return dao;

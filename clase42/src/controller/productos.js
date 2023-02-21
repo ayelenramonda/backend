@@ -2,7 +2,8 @@ import {
 	newProduct,
 	getAllProducts,
 	getById,
-	deleteOneProduct
+	deleteOneProduct,
+	updateProducto
 } from '../services/productos.services.js';
 
 export const saveController = async (req, res) => {
@@ -47,5 +48,17 @@ export async function deleteProductController(req, res) {
 		});
 	} catch (error) {
 		console.log(error);
+	}
+}
+
+export async function updateProductoController(req, res) {
+	const id = req.params.id;
+	const body = req.body;
+	try {
+		let data = await updateProducto(id, body);
+
+		res.json(data);
+	} catch (err) {
+		next(err);
 	}
 }

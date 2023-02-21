@@ -22,3 +22,8 @@ export async function deleteOneProduct(id) {
 	const products = await productosRepository.deleteProduct(id);
 	return products;
 }
+
+export const updateProducto = async (id, updateProduct) => {
+	const updateproducto = await newsRepository.updateNew(id, updateProduct);
+	return updateproducto;
+};

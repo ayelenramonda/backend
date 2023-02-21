@@ -5,8 +5,10 @@ import config from './config/index.js';
 import session from 'express-session';
 import passport from 'passport';
 import { loginFunc, signUpFunc } from './services/auth.js';
+import cors from 'cors';
 
 const app = express();
+app.use(express.static('public'));
 
 app.use((err, req, res, next) => {
 	const status = err.status || 500;
@@ -36,6 +38,8 @@ const StoreOptions = {
 		maxAge: ttlSeconds * 1000
 	}
 };
+
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use(express.static('public'));
 
@@ -69,4 +73,5 @@ app.listen(PORT, () => {
 	console.log(`Servidor express escuchando en el puerto ${PORT}`);
 });
 
-export default app;
+module.exports.app = app;
+//export default app;
