@@ -38,7 +38,6 @@ export default class DaoMongoDB {
 	async createProduct(producto) {
 		try {
 			const newProduct = new ProductosModel(producto);
-			console.log(newProduct);
 			return await newProduct.save();
 		} catch (err) {
 			return { error: 'No se pudo ingresar el producto' };

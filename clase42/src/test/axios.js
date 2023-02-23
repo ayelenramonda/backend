@@ -16,7 +16,7 @@ const data = {
 	stock: 10
 };
 
-const urlPost = 'http://localhost:8080/api/productos/add';
+const urlPost = 'http://localhost:8080/api/productos';
 
 export const axiosPost = async () => {
 	try {
@@ -39,5 +39,5 @@ export const axiosDelete = async () => {
 };
 
 //axiosGet();
-//axiosPost();
+axiosPost();
 //axiosDelete();

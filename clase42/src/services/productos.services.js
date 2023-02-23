@@ -9,7 +9,6 @@ export async function newProduct(producto) {
 
 export async function getAllProducts() {
 	const products = await productosRepository.getAll();
-	console.log(products);
 	return products;
 }
 

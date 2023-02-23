@@ -19,7 +19,6 @@ export const saveController = async (req, res) => {
 export const getAllController = async (req, res) => {
 	try {
 		const products = await getAllProducts();
-		console.log(products + 'controller');
 		res.json(products);
 	} catch (error) {
 		console.log(error);
@@ -30,7 +29,6 @@ export const getByIdC = async (req, res) => {
 	try {
 		const { id } = req.params;
 		let product = await getById(id);
-		console.log(product);
 		return res.status(200).json({
 			data: product
 		});

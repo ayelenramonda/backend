@@ -22,7 +22,6 @@ export default class ProductosRepository {
 	async createProduct(producto) {
 		try {
 			const newProduct = await this.dao.createProduct(producto);
-			console.log(newProduct);
 			return newProduct;
 		} catch (err) {
 			return { error: 'No se pudo ingresar el producto' };

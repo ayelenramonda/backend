@@ -1,8 +1,8 @@
 import DaoMongoDB from './daoMongoDB/mongodb.productos.js';
 import DaoMongoDBCart from './daoMongoDB/mongodb.carrito.js';
-import { productosSchema } from './daoMongoDB/schema/schema.productos.js';
-import { carritoSchema } from './daoMongoDB/schema/schema.carrito.js';
-import { initDb } from './daoMongoDB/mongodb.productos.js';
+// import { productosSchema } from './daoMongoDB/schema/schema.productos.js';
+// import { carritoSchema } from './daoMongoDB/schema/schema.carrito.js';
+// import { initDb } from './daoMongoDB/mongodb.productos.js';
 
 let dao = null;
 let daoCarrito = null;
