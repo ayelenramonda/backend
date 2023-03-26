@@ -17,10 +17,7 @@ switch (argv) {
 		dao = new DaoMongoDB();
 		daoCarrito = new DaoMongoDBCart();
 		daoMsg = new DaoMongoDBMessage();
-		// initDb();
-		// dao = new DaoMongoDB('productos', productosSchema);
-		// daoCarrito = new DaoMongoDBCart('carrito', carritoSchema);
-		// console.log(argv);
+
 		break;
 }
 
@@ -80,8 +77,8 @@ export function getDaoCarr() {
 }
 
 ///mensajes
-export async function saveMsg(data) {
-	return await daoMsg.saveMsg(data);
+export async function saveMsg(msg) {
+	return await daoMsg.saveMsg(msg);
 }
 
 export async function getAllMsg() {

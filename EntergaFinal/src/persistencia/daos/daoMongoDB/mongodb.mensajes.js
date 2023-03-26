@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import { MessageModel } from './schema/schema.messages.js';
+import moment from 'moment/moment.js';
 
 dotenv.config();
 
@@ -35,13 +36,36 @@ export default class DaoMongoDBMessage {
 		}
 	}
 
-	async saveMsg(data) {
+	async saveMsg(msg) {
 		try {
-			const newMessage = new MessageModel(data);
-			console.log(newMessage);
-			return await newMessage.save();
+			const mensajes = await this.getAllMsg();
+			if (mensajes.length === 0) {
+				const message = {
+					author: {
+						mail: '',
+						timeStamp: moment().format('LLLL')
+					},
+					text: ''
+				};
+
+				const newElement = new MessageModel(message);
+				const result = await newElement.save();
+				return result;
+			} else {
+				const message = {
+					author: {
+						mail: '',
+						timeStamp: moment().format('LLLL')
+					},
+					text: ''
+				};
+
+				const newElement = new MessageModel(message);
+				const result = await newElement.save();
+				return result;
+			}
 		} catch (err) {
-			return { error: 'No se pudo ingresar el mensaje' };
+			console.log(err);
 		}
 	}
 }

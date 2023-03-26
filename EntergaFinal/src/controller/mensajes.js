@@ -1,11 +1,12 @@
-import { saveMensaje, getAllMensajes, getByIdMsg } from '../services/mensajes.services.js';
+import { saveMensajeSer, getAllMensajes, getByIdMsg } from '../services/mensajes.services.js';
 
 export const saveMsgController = async (req, res) => {
 	const { body } = req;
+
 	try {
-		const msg = await saveMensaje(body);
+		const msg = await saveMensajeSer(body);
 		console.log(msg + 'controller');
-		res.send(msg);
+		res.json(msg);
 	} catch (error) {
 		console.log(error);
 	}

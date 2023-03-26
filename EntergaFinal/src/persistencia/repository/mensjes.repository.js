@@ -17,12 +17,13 @@ export default class MensajesRepository {
 		}
 	}
 
-	async saveMsg(data) {
+	async saveMsg(msg) {
 		try {
-			const newMessage = await this.dao.saveMsg(data);
+			const newMessage = await this.dao.saveMsg(msg);
 			console.log(newMessage);
 			return newMessage;
 		} catch (err) {
+			console.log(err);
 			return { error: 'No se pudo ingresar el mensaje' };
 		}
 	}

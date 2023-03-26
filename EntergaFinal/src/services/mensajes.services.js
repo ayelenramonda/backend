@@ -2,7 +2,7 @@ import MensajesRepository from '../persistencia/repository/mensjes.repository.js
 
 const mensajesRepository = new MensajesRepository();
 
-export async function saveMensaje(data) {
+export async function saveMensajeSer(data) {
 	const msg = await mensajesRepository.saveMsg(data);
 	return msg;
 }

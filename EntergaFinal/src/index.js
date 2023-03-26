@@ -28,7 +28,7 @@ io.on('connection', async (socket) => {
 	socket.emit('messages', await getAllControllerMsg());
 
 	socket.on('sendMessage', async (msg) => {
-		console.log(msg);
+		//console.log(msg);
 		let response = await saveMsgController(msg);
 		console.log(response);
 	});

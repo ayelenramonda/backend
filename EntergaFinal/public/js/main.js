@@ -19,7 +19,7 @@ function render(data) {
 		.map((elemento) => {
 			// Obtiene el valor del objeto donde se asigna el autor y el texto
 			return `<div style="display:flex; flex-direction: column;">
-       	<div class="infoCliente">${elemento.nombre} - ${now}</div>
+       	<div class="infoCliente">${elemento.author.nombre} - ${now}</div>
 		</div>		
         <p class="mensajeCliente">${elemento.text}</p>`;
 		})
@@ -44,16 +44,14 @@ const botonEnviar = document.getElementById('botonEnviar');
 botonEnviar.addEventListener('click', (e) => {
 	e.preventDefault();
 	const message = {
-		nombre: document.getElementById('nombre').value,
-		apellido: document.getElementById('apellido').value,
-		edad: document.getElementById('edad').value,
-		alias: document.getElementById('alias').value,
-		avatar: document.getElementById('avatar').value,
-		mail: document.getElementById('email').value,
+		author: {
+			email: document.getElementById('email').value
+		},
 		text: document.getElementById('texto').value
 	};
 
-	//document.getElementsByClassName('mensaje')[1].value = '';
+	document.getElementsByClassName('mensaje')[1].value = '';
+	document.getElementsByClassName('mensaje')[0].value = '';
 
 	socket.emit('sendMessage', message);
 	//return;
