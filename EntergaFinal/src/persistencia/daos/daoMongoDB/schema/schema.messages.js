@@ -1,10 +1,7 @@
 import mongoose from 'mongoose';
 
 const Schema = new mongoose.Schema({
-	author: {
-		mail: { type: String, require: true },
-		timeStamp: { type: Date, default: Date.now }
-	},
+	author: { type: String, require: true },
 	text: { type: String }
 });
 

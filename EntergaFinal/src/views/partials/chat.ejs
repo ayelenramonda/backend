@@ -2,8 +2,8 @@
 	<h1>Centro de Mensajes</h1>
 	<div id="mensajes"></div>
 	<label for="nombre">Nombre</label>
-	<form>
-		<input type="email" id="email" class="mensaje" placeholder="e-mail" required />
+	<form onsubmit="return addMessage(this)" id="form">
+		<input type="email" id="mail" class="mensaje" placeholder="e-mail" required />
 
 		<label for="mensaje">Tu mensaje</label>
 

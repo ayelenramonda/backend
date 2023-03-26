@@ -36,36 +36,45 @@ export default class DaoMongoDBMessage {
 		}
 	}
 
-	async saveMsg(msg) {
+	async saveMsg(data) {
+		// 	try {
+		// 		const mensajes = await this.getAllMsg();
+		// 		if (mensajes.length === 0) {
+		// 			const message = {
+		// 				author: {
+		// 					mail: data.author,
+		// 					timeStamp: moment().format('LLLL')
+		// 				},
+		// 				text: data.text
+		// 			};
+
+		// 			const newElement = new MessageModel(message);
+		// 			const result = await newElement.save();
+		// 			return result;
+		// 		} else {
+		// 			const message = {
+		// 				author: {
+		// 					mail: data.author,
+		// 					timeStamp: moment().format('LLLL')
+		// 				},
+		// 				text: data.text
+		// 			};
+
+		// 			const newElement = new MessageModel(message);
+		// 			const result = await newElement.save();
+		// 			return result;
+		// 		}
+		// 	} catch (err) {
+		// 		console.log(err);
+		// 	}
+		// }
 		try {
-			const mensajes = await this.getAllMsg();
-			if (mensajes.length === 0) {
-				const message = {
-					author: {
-						mail: '',
-						timeStamp: moment().format('LLLL')
-					},
-					text: ''
-				};
-
-				const newElement = new MessageModel(message);
-				const result = await newElement.save();
-				return result;
-			} else {
-				const message = {
-					author: {
-						mail: '',
-						timeStamp: moment().format('LLLL')
-					},
-					text: ''
-				};
-
-				const newElement = new MessageModel(message);
-				const result = await newElement.save();
-				return result;
-			}
+			const newProduct = new MessageModel(data);
+			console.log(newProduct);
+			return await newProduct.save();
 		} catch (err) {
 			console.log(err);
+			return { error: 'No se pudo ingresar el producto' };
 		}
 	}
 }

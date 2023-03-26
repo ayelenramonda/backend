@@ -6,7 +6,7 @@ export const saveMsgController = async (req, res) => {
 	try {
 		const msg = await saveMensajeSer(body);
 		console.log(msg + 'controller');
-		res.json(msg);
+		return msg;
 	} catch (error) {
 		console.log(error);
 	}

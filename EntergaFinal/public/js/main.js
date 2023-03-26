@@ -19,7 +19,7 @@ function render(data) {
 		.map((elemento) => {
 			// Obtiene el valor del objeto donde se asigna el autor y el texto
 			return `<div style="display:flex; flex-direction: column;">
-       	<div class="infoCliente">${elemento.author.nombre} - ${now}</div>
+       	<div class="infoCliente">${elemento.author} - ${now}</div>
 		</div>		
         <p class="mensajeCliente">${elemento.text}</p>`;
 		})
@@ -28,34 +28,26 @@ function render(data) {
 	document.getElementById('mensajes').innerHTML = html; // Obtenemos el objeto mensajes
 }
 // El objeto message en index.js se encuentra vacío, pero esta función le agrega los parámetros al objeto y crea tanto el author como el text.
-// function addMessage(e) {
-// 	const mensaje = {
-// 		author: document.getElementById('nombre').value,
-// 		text: document.getElementById('texto').value
-// 	};
-// 	document.getElementsByClassName('mensaje')[1].value = '';
 
-// 	socket.emit('new-message', mensaje);
-
-// 	return false;
-// }
-const botonEnviar = document.getElementById('botonEnviar');
-
-botonEnviar.addEventListener('click', (e) => {
-	e.preventDefault();
-	const message = {
-		author: {
-			email: document.getElementById('email').value
-		},
+function addMessage(e) {
+	const mensaje = {
+		author: document.getElementById('mail').value,
 		text: document.getElementById('texto').value
 	};
 
 	document.getElementsByClassName('mensaje')[1].value = '';
-	document.getElementsByClassName('mensaje')[0].value = '';
 
-	socket.emit('sendMessage', message);
-	//return;
-});
+	socket.emit('new-message', mensaje);
+	console.log(mensaje);
+
+	//return false;
+}
+// const form = document.querySelector('#form');
+// form.addEventListener('submit', (e) => {
+// 	e.preventDefault();
+// 	console.log(form['email'].value, form['texto'].value);
+// });
+
 // Productos
 
 // function renderItem(data) {
