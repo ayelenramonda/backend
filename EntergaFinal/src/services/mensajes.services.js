@@ -9,7 +9,7 @@ export async function saveMensajeSer(data) {
 
 export async function getAllMensajes() {
 	const message = await mensajesRepository.getAllMsg();
-	console.log(message);
+	//console.log(message);
 	return message;
 }
 

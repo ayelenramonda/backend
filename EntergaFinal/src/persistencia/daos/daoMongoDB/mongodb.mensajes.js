@@ -37,44 +37,38 @@ export default class DaoMongoDBMessage {
 	}
 
 	async saveMsg(data) {
-		// 	try {
-		// 		const mensajes = await this.getAllMsg();
-		// 		if (mensajes.length === 0) {
-		// 			const message = {
-		// 				author: {
-		// 					mail: data.author,
-		// 					timeStamp: moment().format('LLLL')
-		// 				},
-		// 				text: data.text
-		// 			};
+		// try {
+		// 	const mensajes = await this.getAllMsg();
+		// 	if (mensajes.length === 0) {
+		// 		const message = {
+		// 			author: author,
+		// 			text: text
+		// 		};
 
-		// 			const newElement = new MessageModel(message);
-		// 			const result = await newElement.save();
-		// 			return result;
-		// 		} else {
-		// 			const message = {
-		// 				author: {
-		// 					mail: data.author,
-		// 					timeStamp: moment().format('LLLL')
-		// 				},
-		// 				text: data.text
-		// 			};
+		// 		const newElement = new MessageModel(message);
+		// 		const result = await newElement.save();
+		// 		return result;
+		// 	} else {
+		// 		const message = {
+		// 			author: author,
+		// 			text: text
+		// 		};
 
-		// 			const newElement = new MessageModel(message);
-		// 			const result = await newElement.save();
-		// 			return result;
-		// 		}
-		// 	} catch (err) {
-		// 		console.log(err);
+		// 		const newElement = new MessageModel(message);
+		// 		const result = await newElement.save();
+		// 		return result;
 		// 	}
+		// } catch (err) {
+		// 	console.log(err);
 		// }
+		//}
 		try {
 			const newProduct = new MessageModel(data);
 			console.log(newProduct);
 			return await newProduct.save();
 		} catch (err) {
 			console.log(err);
-			return { error: 'No se pudo ingresar el producto' };
+			return { error: 'No se pudo ingresar el mensaje' };
 		}
 	}
 }

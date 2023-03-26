@@ -2,7 +2,6 @@ import { saveMensajeSer, getAllMensajes, getByIdMsg } from '../services/mensajes
 
 export const saveMsgController = async (req, res) => {
 	const { body } = req;
-
 	try {
 		const msg = await saveMensajeSer(body);
 		console.log(msg + 'controller');

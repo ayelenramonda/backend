@@ -9,9 +9,8 @@ export default class MensajesRepository {
 	async getAllMsg() {
 		try {
 			const mensajes = await this.dao.getAllMsg();
-			const dtoMsg = asDto(mensajes);
-
-			return dtoMsg;
+			//const dtoMsg = asDto(mensajes);
+			return mensajes;
 		} catch (err) {
 			console.log(err);
 		}
